@@ -1,0 +1,15 @@
+import requests
+
+def print_weather_by_location(location: str) -> None:
+  url = f"http://wttr.dvmn.org/{location}?n&m&M&T&q&lang=ru"
+  response = requests.get(url)
+  response.raise_for_status()
+  print(response.text)
+
+if __name__ == "__main__":
+  loc1 = "London"  # Локации на русском недоступны из-за большой нагрузки
+  print_weather_by_location(loc1)
+  loc2 = "Sheremetyevo"
+  print_weather_by_location(loc2)
+  loc3 = "Cherepovets"
+  print_weather_by_location(loc3)
